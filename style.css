@@ -749,5 +749,11 @@ li{
     margin-bottom: 12px;
 }
 h2{
-    color: #00A7FF;
+    font-family: "Heiti SC";
+    /*color: #00A7FF;*/
+}
+.ClustrMaps{
+    text-align: center;
+    border-top: 1px solid #e8e8e8;
+    padding: 30px 0;
 }
