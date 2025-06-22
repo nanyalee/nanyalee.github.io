@@ -54,6 +54,81 @@
 			<div class="news">
 				<div>News:</div>
 				<div class="newsItem">
+					<li style="width:60%">
+						On the 18th of June 2025, Prof. Li met Prof. Frank Henning from Fraunhofer ICT and presented an invited speech at SAMPE 2025 International Conference.
+					</li>
+					<div style="flex: 1;margin-left:8px; margin-bottom: 8px;">
+						<!-- 为图片添加点击事件 -->
+						<img 
+							style="width:100%;height:auto" 
+							src="./news-11.png" 
+							onclick="openImagePreview(this.src)"
+						/>
+					</div>
+					<div style="flex: 1;margin-left:8px; margin-bottom: 8px;">
+						<img style="width:100%;height:auto" src="./news-12.png"/>
+					</div>
+				</div>
+				<div class="newsItem">
+					<li style="width:85%">
+						On the 27th of May 2025, Mr. Cheng Guang and Ms. Yuxin Zhang have joined the ICCES 2025 International Conference and presented their research works.
+					</li>
+					<div style="flex: 1;margin-left:8px; margin-bottom: 8px;">
+						<img style="width:100%;height:auto" src="./news-13.png"/>
+					</div>
+				</div>
+				<div class="newsItem">
+					<li style="width:75%">
+						On the 16th of May 2025, Prof. Li participated in the “中国微米纳米技术学会第十届青年科学家论坛” and presented an invited talk on “Design Method of Ultrasound Phase Array for tFUS.”
+					</li>
+					<div style="flex: 1;margin-left:8px; margin-bottom: 8px;">
+						<img style="width:100%;height:auto" src="./news-14.png"/>
+					</div>
+				</div>
+				<div class="newsItem">
+					<li style="width:80%">
+						On 13th April 2025, Prof. Li has presented an invited speech at the Polyu-Wuxi Technology and Innovation Research Institute about “Ethics in Human-robot Collaboration for Additive Manufacturing.”
+					</li>
+					<div style="flex: 1;margin-left:8px; margin-bottom: 8px;">
+						<img style="width:100%;height:auto" src="./news-15.png"/>
+					</div>
+				</div>
+				<div class="newsItem">
+					<li style="width:80%">
+					   On the 12th of May, Prof. Yi Xiong came to NUAA and did an invited  presentation for “Structure and Process Optimization Method for the Additive Manufacturing of Fiber-reinfroced Composites.”
+					</li>
+					<div style="flex: 1;margin-left:8px; margin-bottom: 8px;">
+						<img style="width:100%;height:auto" src="./news-16.png"/>
+					</div>
+				</div>
+				<div class="newsItem">
+					<li style="width:80%">
+						On the 31st of March 2025, together with Prof. Cheng, Prof. Li joined the “全国生物电工与生物电磁高峰会议” at Shenzhen, China.
+					</li>
+					<div style="flex: 1;margin-left:8px; margin-bottom: 8px;">
+						<img style="width:100%;height:auto" src="./news-17.png"/>
+					</div>
+				</div>
+				<div class="newsItem">
+					<li style="width:60%">
+						Mr. Hanlin Zheng has submitted a paper on the 2025 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM2025) and accpted.
+					</li>
+					<div style="flex: 1;margin-left:8px; margin-bottom: 8px;">
+						<img style="width:100%;height:auto" src="./news-18.png"/>
+					</div>
+					<div style="flex: 1;margin-left:8px; margin-bottom: 8px;">
+						<img style="width:100%;height:auto" src="./news-19.png"/>
+					</div>
+				</div>
+				<div class="newsItem">
+					<li style="width:80%">
+						Supervised by Prof. Li, Mr. Changkun Sun has published a CIRP Annal paper (Top in Mechanical Engineering) entitled:” Design Optimization of Graded Cellular Structures for Additive Manufacturing via Differentiable Voronoi Diagram”
+					</li>
+					<div style="flex: 1;margin-left:8px; margin-bottom: 8px;">
+						<img style="width:100%;height:auto" src="./news-20.png"/>
+					</div>
+				</div>
+				<div class="newsItem">
 					<li style="width:80%">
 						Prof. Nanya Li has been invited to give a presentation at the South China University of Technology, “Microwave-assisted 3D Printing of Lightweight CFRP Structures: from raw materials to design, processing & sustainable manufacturing.”
 					</li>
@@ -182,5 +257,61 @@
 			</div>
 		</div>
 	</div>
+	<div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+	<dialog id="imageDialog" style="border: none;">
+		<div style="position: relative; max-width: 100%; max-height: 100%;">
+			<img id="previewImage" style="max-width: 100%; max-height: 100%;">
+			<button 
+				style="
+					position: absolute;
+					top: 10px;
+					right: 10px;
+					background-color: white;
+					border: none;
+					border-radius: 50%;
+					width: 30px;
+					height: 30px;
+					font-size: 20px;
+					cursor: pointer;
+				" 
+				onclick="closeImagePreview()"
+			>
+				X
+			</button>
+		</div>
+	</dialog>
 </main>
+<script>
+    function openImagePreview(src) {
+        const dialog = document.getElementById('imageDialog');
+        const previewImage = document.getElementById('previewImage');
+        const overlay = document.getElementById('modalOverlay');
+        previewImage.src = src;
+        dialog.showModal();
+        overlay.style.display = 'block';
+        // 禁止页面滚动
+        document.body.style.overflow = 'hidden';
+    }
+
+	function closeImagePreview() {
+        const dialog = document.getElementById('imageDialog');
+        const overlay = document.getElementById('modalOverlay');
+        dialog.close();
+        overlay.style.display = 'none';
+        // 恢复页面滚动
+        document.body.style.overflow = 'auto';
+    }
+
+    // 页面加载完成后执行
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取页面中所有的 img 元素
+        const images = document.querySelectorAll('img');
+        images.forEach(image => {
+            // 为每个 img 元素添加点击事件监听器
+            image.addEventListener('click', function() {
+                openImagePreview(this.src);
+            });
+        });
+    });
+</script>
 </body>
