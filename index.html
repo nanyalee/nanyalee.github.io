@@ -309,7 +309,9 @@
         images.forEach(image => {
             // 为每个 img 元素添加点击事件监听器
             image.addEventListener('click', function() {
-                openImagePreview(this.src);
+		   if(!this.src.includes('clustrmaps.com')){
+		   openImagePreview(this.src);
+		}
             });
         });
     });
