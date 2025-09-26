@@ -772,3 +772,49 @@ h2{
     width: 20%;
     height: auto;
 }
+
+/* 分页样式 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 15px;
+}
+
+.pagination-btn {
+    padding: 8px 12px;
+    background-color: #2a7ae2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background-color: #1756a9;
+}
+
+.pagination-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.page-info {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* 隐藏的新闻项 */
+.newsItem.hidden {
+    display: none;
+}
