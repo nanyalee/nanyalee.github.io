@@ -462,10 +462,10 @@
 			const newsItems = document.querySelectorAll('.newsItem');
 			totalPages = Math.ceil(newsItems.length / itemsPerPage);
 			updatePagination();
-			showPage(1);
+			showPage(1, false); // 初始化时不滚动
 		}
 
-		function showPage(page) {
+		function showPage(page, shouldScroll = true) {
 			const newsItems = document.querySelectorAll('.newsItem');
 			const startIndex = (page - 1) * itemsPerPage;
 			const endIndex = startIndex + itemsPerPage;
@@ -481,8 +481,10 @@
 			currentPage = page;
 			updatePagination();
 			
-			// 滚动到新闻区域
-			scrollToNewsSection();
+			// 只有在需要时才滚动到新闻区域
+			if (shouldScroll) {
+				scrollToNewsSection();
+			}
 		}
 
 		function scrollToNewsSection() {
